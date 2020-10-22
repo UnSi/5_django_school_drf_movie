@@ -5,7 +5,7 @@ https://www.youtube.com/playlist?list=PLF-NY6ldwAWqSxUpnTBObEP21cFQxNJ7C
 #### плейлист:
 - [x] Создание и настройка проекта django rest framework - урок 1
 - [x] Настройка приложения movies и ckeditor - урок 2
-- [ ] Serializers и APIView django rest framework - урок 3
+- [x] Serializers и APIView django rest framework - урок 3
 - [ ] Добавление и вывод отзывов к фильму - урок 4
 - [ ] DRF рекурсивный вывод вложенных записей // вывод отзывов к фильму- урок 5
 - [ ] Django Rest Framework - Добавление и обновление рейтинга к фильму - урок 6
