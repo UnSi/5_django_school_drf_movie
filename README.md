@@ -9,7 +9,7 @@ https://www.youtube.com/playlist?list=PLF-NY6ldwAWqSxUpnTBObEP21cFQxNJ7C
 - [x] Добавление и вывод отзывов к фильму - урок 4
 - [x] DRF рекурсивный вывод вложенных записей // вывод отзывов к фильму- урок 5
 - [x] Django Rest Framework - Добавление и обновление рейтинга к фильму - урок 6
-- [ ] Django Rest Framework - вывод рейтинга к фильмам - урок 7
+- [x] Django Rest Framework - вывод рейтинга к фильмам - урок 7
 - [ ] Django Rest Framework - ListAPIView и RetrieveAPIView, вывод актеров и режиссеров - урок 8
 - [ ] Django Rest Framework использование generics классов - урок 9
 - [ ] django-filter фильтрация фильмов по годам и жанрам - Django Rest Framework урок 10
