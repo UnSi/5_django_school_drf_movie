@@ -12,7 +12,7 @@ https://www.youtube.com/playlist?list=PLF-NY6ldwAWqSxUpnTBObEP21cFQxNJ7C
 - [x] Django Rest Framework - вывод рейтинга к фильмам - урок 7
 - [x] Django Rest Framework - ListAPIView и RetrieveAPIView, вывод актеров и режиссеров - урок 8
 - [x] Django Rest Framework использование generics классов - урок 9
-- [ ] django-filter фильтрация фильмов по годам и жанрам - Django Rest Framework урок 10
+- [x] django-filter фильтрация фильмов по годам и жанрам - Django Rest Framework урок 10
 - [ ] djoser регистрация, авторизация, отправка email с подтверждением - Django Rest Framework урок 11
 - [ ] drf-yasg автодокументирование api django rest framework - урок 12
 - [ ] Django rest framework Social OAuth2 вход через социальную сеть VK - урок 13

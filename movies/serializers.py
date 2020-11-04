@@ -10,7 +10,7 @@ class MovieListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Movie
-        fields = ('id', 'title', 'tagline', 'category', "rating_user", "middle_star")
+        fields = ('id', 'title', 'tagline', 'category', "rating_user", "middle_star", "year")
 
 
 class ReviewCreateSerializer(serializers.ModelSerializer):
@@ -23,6 +23,7 @@ class ReviewCreateSerializer(serializers.ModelSerializer):
 
 class CreateRatingSerializer(serializers.ModelSerializer):
     """Добавление рейтинга"""
+
     class Meta:
         model = Rating
         fields = ("star", "movie")
@@ -39,6 +40,7 @@ class CreateRatingSerializer(serializers.ModelSerializer):
 
 class RecursiveSerializer(serializers.Serializer):
     """Вывод рекурсивно children"""
+
     def to_representation(self, value):
         serializer = self.parent.parent.__class__(value, context=self.context)
         return serializer.data
@@ -46,6 +48,7 @@ class RecursiveSerializer(serializers.Serializer):
 
 class FilterReviewListSerializer(serializers.ListSerializer):
     """Фильтр комментариев, только parents"""
+
     def to_representation(self, data):
         data = data.filter(parent=None)
         return super().to_representation(data)
@@ -53,6 +56,7 @@ class FilterReviewListSerializer(serializers.ListSerializer):
 
 class ActorListSerializer(serializers.ModelSerializer):
     """Вывод списка актеров и режисёров"""
+
     class Meta:
         model = Actor
         fields = ("id", "name", "image")
@@ -60,6 +64,7 @@ class ActorListSerializer(serializers.ModelSerializer):
 
 class ActorDetailSerializer(serializers.ModelSerializer):
     """Вывод полного описания актера/режисёра"""
+
     class Meta:
         model = Actor
         fields = "__all__"
@@ -86,7 +91,4 @@ class MovieDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Movie
-        exclude = ('draft', )
-
-
-
+        exclude = ('draft',)
