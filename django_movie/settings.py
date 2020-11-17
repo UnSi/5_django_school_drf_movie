@@ -47,6 +47,10 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'djoser',
 
+    'oauth2_provider',
+    'social_django',
+    'rest_framework_social_oauth2',
+
     'drf_yasg',
     'django_filters',
     'movies',
@@ -76,6 +80,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -211,10 +218,28 @@ CKEDITOR_CONFIGS = {
     }
 }
 
+
+# vk oauth2
+try:
+    from .secret.vk import *
+except ImportError:
+    SOCIAL_AUTH_VK_OAUTH2_KEY = "000000"
+    SOCIAL_AUTH_VK_OAUTH2_SECRET = "000000000000000000"
+
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.vk.VKOAuth2',
+    'rest_framework_social_oauth2.backends.DjangoOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+        'rest_framework_social_oauth2.authentication.SocialAuthentication',
     ),
     'DEFAULT_FILTER_BACKENDS': (
         'django_filters.rest_framework.DjangoFilterBackend',
@@ -224,14 +249,13 @@ REST_FRAMEWORK = {
 
 #SMTP
 try:
-    from .smtp import *
+    from .secret.smtp import *
 except ImportError:
     EMAIL_USE_TLS = True
     EMAIL_HOST = 'smtp.gmail.com'
     EMAIL_HOST_USER = 'somemail@gmail.com'
     EMAIL_HOST_PASSWORD = 'password'
     EMAIL_PORT = 587
-
 
 
 DJOSER = {
@@ -255,7 +279,7 @@ SIMPLE_JWT = {
     'AUDIENCE': None,
     'ISSUER': None,
 
-    'AUTH_HEADER_TYPES': ('Bearer',),
+    'AUTH_HEADER_TYPES': ('JWT',),
     'AUTH_HEADER_NAME': 'HTTP_AUTHORIZATION',
     'USER_ID_FIELD': 'id',
     'USER_ID_CLAIM': 'user_id',
