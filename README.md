@@ -16,8 +16,8 @@ https://www.youtube.com/playlist?list=PLF-NY6ldwAWqSxUpnTBObEP21cFQxNJ7C
 - [x] djoser регистрация, авторизация, отправка email с подтверждением - Django Rest Framework урок 11
 - [x] drf-yasg автодокументирование api django rest framework - урок 12
 - [x] Django rest framework Social OAuth2 вход через социальную сеть VK - урок 13
-- [ ] Использование ViewSet в django rest framework - урок 14
-- [ ] Добавление CORS django rest framework - урок 15
-- [ ] Пагинация в django rest framework - урок 16
+- [x] Использование ViewSet в django rest framework - урок 14
+- [x] Добавление CORS django rest framework - урок 15
+- [x] Пагинация в django rest framework - урок 16
 
 

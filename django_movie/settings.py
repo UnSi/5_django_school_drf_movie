@@ -27,7 +27,7 @@ SECRET_KEY = '2gu3rsheqk94t95u%tj(7%xczf##ew(x@asbg$u-ba3-^0f95d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -53,6 +53,7 @@ INSTALLED_APPS = [
 
     'drf_yasg',
     'django_filters',
+    'corsheaders',
     'movies',
 
 ]
@@ -60,6 +61,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -244,6 +246,8 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': (
         'django_filters.rest_framework.DjangoFilterBackend',
     ),
+    "DEFAULT_PAGINATION_CLASS": 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 3
 }
 
 
@@ -293,3 +297,9 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_LIFETIME': timedelta(minutes=5),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
+
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:8080',
+    'http://127.0.0.1:8000',
+]
